@@ -1,6 +1,9 @@
+import Header from '../common/Header';
+
 const MainPage = () => (
   <>
-    <div>Main Page</div>
+    <Header />
+    <div style={{ marginTop: 92 }}>Main Page</div>
   </>
 );
 
