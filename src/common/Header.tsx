@@ -15,6 +15,8 @@ const Header = () => {
           <li>예약 서비스</li>
         </Menu>
         <UserWrap>
+          <span>로그인</span>
+          <span>문의하기</span>
           <img src={person} alt="" />
           <button>
             병원 서비스
@@ -82,9 +84,18 @@ const UserWrap = styled.div`
     width: 18px;
     height: 18px;
     cursor: pointer;
+    display: none;
+  }
+  span {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: #0049fb;
+    margin-right: 32.5px;
   }
   button {
-    margin-left: 16px;
     width: 124px;
     height: 36px;
     background: #0049fb;

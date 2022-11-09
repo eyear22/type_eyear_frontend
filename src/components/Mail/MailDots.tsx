@@ -18,7 +18,7 @@ const MailDots = () => {
           <div className="line" />
           <img src={Dot3} alt="" />
         </Dots>
-        <Title>{'영상 우편을 보낼' + '\n' + '가족을 선택해주세요.'}</Title>
+        <Title>{'홍길동님께' + '\n' + '편지를 보내볼까요?'}</Title>
       </Container>
       <Content>
         <img src={ArrowLeft} alt="" />
@@ -34,12 +34,17 @@ const Container = styled.div`
   flex-direction: column;
   padding: 0 240px;
   margin-bottom: 96px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `;
 
 const Dots = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  transform: translateY(10px);
   img {
     width: 18px;
     height: 18px;
@@ -74,10 +79,12 @@ const Content = styled.div`
   img {
     width: 158px;
     height: 158px;
+    cursor: pointer;
   }
   .mailWrap {
     width: 630px;
     height: 403px;
+    cursor: auto;
   }
 `;
 
