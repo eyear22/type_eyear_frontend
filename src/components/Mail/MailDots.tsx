@@ -21,9 +21,12 @@ const MailDots = () => {
         <Title>{'홍길동님께' + '\n' + '편지를 보내볼까요?'}</Title>
       </Container>
       <Content>
-        <img src={ArrowLeft} alt="" />
-        <img src={MailBasic} alt="" className="mailWrap"></img>
-        <img src={ArrowRight} alt="" />
+        <Arrow src={ArrowLeft} alt="" />
+        <MailWrap>
+          <img src={MailBasic} alt="" />
+          <div className="receiver">ss</div>
+        </MailWrap>
+        <Arrow src={ArrowRight} alt="" />
       </Content>
     </>
   );
@@ -32,12 +35,12 @@ const MailDots = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 240px;
   margin-bottom: 96px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: 622px;
 `;
 
 const Dots = styled.div`
@@ -76,15 +79,31 @@ const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+`;
+
+const Arrow = styled.img`
+  width: 158px;
+  height: 158px;
+  cursor: pointer;
+`;
+
+const MailWrap = styled.div`
+  display: flex;
   img {
-    width: 158px;
-    height: 158px;
-    cursor: pointer;
-  }
-  .mailWrap {
     width: 630px;
     height: 403px;
-    cursor: auto;
+    object-fit: cover;
+  }
+  .receiver {
+    position: absolute;
+    width: 158px;
+    height: 38px;
+    left: 685px;
+    top: 485px;
+    background: #ffffff;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
   }
 `;
 

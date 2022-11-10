@@ -17,12 +17,14 @@ const Container = styled.section`
   display: flex;
   margin-top: 92px;
   height: 51.3vh;
-  background-color: #f2f5fe;
+  background: #f1f5ff;
 `;
 
 const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transform: translateY(112px);
-  width: 60%;
   margin: 0 auto;
 `;
 
