@@ -5,29 +5,45 @@ const Dot2 = process.env.PUBLIC_URL + '/img/mailDot2.png';
 const Dot3 = process.env.PUBLIC_URL + '/img/mailDot3.png';
 const ArrowRight = process.env.PUBLIC_URL + '/img/mailArrowRight.png';
 const ArrowLeft = process.env.PUBLIC_URL + '/img/mailArrowLeft.png';
-const MailBasic = process.env.PUBLIC_URL + '/img/mailBasic.png';
 
-const MailDots = () => {
+type MailLayoutType = {
+  children: React.ReactNode;
+  stage: number;
+  setStage: (v: number) => void;
+  leftArrow?: boolean;
+  rightArrow?: boolean;
+  title: string;
+  desc: string;
+};
+
+const MailLayout: React.FC<MailLayoutType> = ({
+  children,
+  stage,
+  setStage,
+  leftArrow = true,
+  rightArrow = true,
+  title,
+  desc,
+}) => {
+  console.log(stage);
   return (
     <>
       <Container>
         <Dots>
           <img src={DotCheck} alt="" />
           <div className="line" />
-          <img src={Dot2} alt="" />
+          <img src={stage < 1 ? Dot2 : DotCheck} alt="" />
           <div className="line" />
-          <img src={Dot3} alt="" />
+          <img src={stage < 2 ? Dot3 : DotCheck} alt="" />
         </Dots>
-        <Title>{'홍길동님께' + '\n' + '편지를 보내볼까요?'}</Title>
+        <Title>{title}</Title>
       </Container>
       <Content>
-        <Arrow src={ArrowLeft} alt="" />
-        <MailWrap>
-          <img src={MailBasic} alt="" />
-          <div className="receiver">ss</div>
-        </MailWrap>
-        <Arrow src={ArrowRight} alt="" />
+        <LeftArrow src={ArrowLeft} alt="" onClick={() => setStage(stage - 1)} left={leftArrow} />
+        <div>{children}</div>
+        <RightArrow src={ArrowRight} alt="" onClick={() => setStage(stage + 1)} right={rightArrow} />
       </Content>
+      <Desc>{desc}</Desc>
     </>
   );
 };
@@ -35,12 +51,12 @@ const MailDots = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 96px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   width: 622px;
+  margin-bottom: 86px;
 `;
 
 const Dots = styled.div`
@@ -82,29 +98,29 @@ const Content = styled.div`
   position: relative;
 `;
 
-const Arrow = styled.img`
+const LeftArrow = styled.img<{ left?: boolean }>`
   width: 158px;
   height: 158px;
   cursor: pointer;
+  visibility: ${(props) => (props.left ? 'visible' : 'hidden')};
 `;
 
-const MailWrap = styled.div`
-  display: flex;
-  img {
-    width: 630px;
-    height: 403px;
-    object-fit: cover;
-  }
-  .receiver {
-    position: absolute;
-    width: 158px;
-    height: 38px;
-    left: 685px;
-    top: 485px;
-    background: #ffffff;
-    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
+const RightArrow = styled.img<{ right?: boolean }>`
+  width: 158px;
+  height: 158px;
+  cursor: pointer;
+  visibility: ${(props) => (props.right ? 'visible' : 'hidden')};
 `;
 
-export default MailDots;
+const Desc = styled.div`
+  width: 622px;
+  text-align: right;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  color: #a2a2a2;
+`;
+
+export default MailLayout;
