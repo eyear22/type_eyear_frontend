@@ -36,6 +36,7 @@ const Wrap = styled.div`
   img {
     width: 630px;
     height: 403px;
+    object-fit: cover;
   }
   .receiver {
     position: absolute;

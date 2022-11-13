@@ -40,7 +40,7 @@ const MailLayout: React.FC<MailLayoutType> = ({
       </Container>
       <Content>
         <LeftArrow src={ArrowLeft} alt="" onClick={() => setStage(stage - 1)} left={leftArrow} />
-        <div className="center">{children}</div>
+        <div>{children}</div>
         <RightArrow src={ArrowRight} alt="" onClick={() => setStage(stage + 1)} right={rightArrow} />
       </Content>
       <Desc>{desc}</Desc>
@@ -96,12 +96,6 @@ const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  .center {
-    display: flex;
-    background-color: aqua;
-    width: 630px;
-    height: 403px;
-  }
 `;
 
 const LeftArrow = styled.img<{ left?: boolean }>`

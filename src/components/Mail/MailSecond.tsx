@@ -1,11 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Slider from 'react-slick';
 import styled from 'styled-components';
 import MailLayout from './MailLayout';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useState } from 'react';
 const MailBasic = process.env.PUBLIC_URL + '/img/mailBasic.png';
 const Mail1 = process.env.PUBLIC_URL + '/img/mail1.png';
 const Mail2 = process.env.PUBLIC_URL + '/img/mail2.png';
+const Mail3 = process.env.PUBLIC_URL + '/img/mail3.png';
+const Mail4 = process.env.PUBLIC_URL + '/img/mail4.png';
+const Mail5 = process.env.PUBLIC_URL + '/img/mail5.png';
 
 type MailSecondType = {
   stage: number;
@@ -13,18 +18,20 @@ type MailSecondType = {
 };
 
 const MailSecond: React.FC<MailSecondType> = ({ stage, setStage }) => {
+  const [mailIndex, setMailIndex] = useState(0);
+  // mailIndex
   const settings = {
     dots: false,
     infinite: false,
-    speed: 700,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     vertical: true,
     verticalSwiping: true,
-    centerMode: true,
-    centerPadding: '10px',
+    afterChange: (current: number) => setMailIndex(current),
   };
+
   return (
     <>
       <MailLayout
@@ -38,6 +45,9 @@ const MailSecond: React.FC<MailSecondType> = ({ stage, setStage }) => {
             <img src={MailBasic} alt="" />
             <img src={Mail1} alt="" />
             <img src={Mail2} alt="" />
+            <img src={Mail3} alt="" />
+            <img src={Mail4} alt="" />
+            <img src={Mail5} alt="" />
           </CustomSlider>
           <div className="receiver">홍길동</div>
           <div className="date">2022.11.01</div>
@@ -133,14 +143,18 @@ const Wrap = styled.div`
 const CustomSlider = styled(Slider)`
   width: 630px;
   height: 403px;
-  .slick-slide {
+  .slick-list {
     width: 630px;
-    height: 403px;
-    box-sizing: border-box;
   }
-  img {
-    width: 100%;
-    height: 100%;
+  .slick-slide {
+    box-sizing: border-box;
+    padding: 0px;
+  }
+  .slick-slide:not(.slick-active) {
+    opacity: 0.3;
+  }
+  .slick-slide img {
+    height: 403px;
     object-fit: cover;
     box-sizing: border-box;
   }
