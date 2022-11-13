@@ -1,6 +1,11 @@
+import Slider from 'react-slick';
 import styled from 'styled-components';
 import MailLayout from './MailLayout';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 const MailBasic = process.env.PUBLIC_URL + '/img/mailBasic.png';
+const Mail1 = process.env.PUBLIC_URL + '/img/mail1.png';
+const Mail2 = process.env.PUBLIC_URL + '/img/mail2.png';
 
 type MailSecondType = {
   stage: number;
@@ -8,6 +13,18 @@ type MailSecondType = {
 };
 
 const MailSecond: React.FC<MailSecondType> = ({ stage, setStage }) => {
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 700,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    vertical: true,
+    verticalSwiping: true,
+    centerMode: true,
+    centerPadding: '10px',
+  };
   return (
     <>
       <MailLayout
@@ -17,7 +34,11 @@ const MailSecond: React.FC<MailSecondType> = ({ stage, setStage }) => {
         desc="*마우스로 당신만의 카드를 골라주세요."
       >
         <Wrap>
-          <img src={MailBasic} alt="" />
+          <CustomSlider {...settings}>
+            <img src={MailBasic} alt="" />
+            <img src={Mail1} alt="" />
+            <img src={Mail2} alt="" />
+          </CustomSlider>
           <div className="receiver">홍길동</div>
           <div className="date">2022.11.01</div>
           <div className="send">박세희 드림</div>
@@ -30,11 +51,6 @@ const MailSecond: React.FC<MailSecondType> = ({ stage, setStage }) => {
 
 const Wrap = styled.div`
   display: flex;
-  img {
-    width: 630px;
-    height: 403px;
-    object-fit: cover;
-  }
   .receiver {
     position: absolute;
     left: 195px;
@@ -111,6 +127,22 @@ const Wrap = styled.div`
     font-size: 10.1538px;
     line-height: 120%;
     color: #0049fb;
+  }
+`;
+
+const CustomSlider = styled(Slider)`
+  width: 630px;
+  height: 403px;
+  .slick-slide {
+    width: 630px;
+    height: 403px;
+    box-sizing: border-box;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
   }
 `;
 
