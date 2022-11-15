@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import MailDone from './MailDone';
 import MailFirst from './MailFirst';
 import MailSecond from './MailSecond';
 import MailThird from './MailThird';
@@ -10,6 +11,7 @@ const MailContainer = () => {
     <MailFirst stage={stage} setStage={setStage} />,
     <MailSecond stage={stage} setStage={setStage} />,
     <MailThird stage={stage} setStage={setStage} />,
+    <MailDone stage={stage} setStage={setStage} />,
   ];
   return (
     <>
@@ -23,7 +25,7 @@ const MailContainer = () => {
 const Container = styled.section`
   display: flex;
   margin-top: 92px;
-  height: 50.2vh;
+  height: 468px;
   background: #f1f5ff;
 `;
 
