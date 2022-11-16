@@ -1,16 +1,17 @@
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import MailLayout from './MailLayout';
-const Mail1 = process.env.PUBLIC_URL + '/img/mail1.png';
 const UploadIcon = process.env.PUBLIC_URL + '/img/mail_upload.png';
 const SendIcon = process.env.PUBLIC_URL + '/img/send.png';
+const CheckIcon = process.env.PUBLIC_URL + '/img/Check.png';
 
 type MailThirdType = {
   stage: number;
   setStage: (v: number) => void;
+  mailIndex: number;
 };
 
-const MailThird: React.FC<MailThirdType> = ({ stage, setStage }) => {
+const MailThird: React.FC<MailThirdType> = ({ stage, setStage, mailIndex }) => {
   const [video, setVideo] = useState<Array<File>>([]);
   const progressRef = useRef<HTMLProgressElement>(null);
 
@@ -50,7 +51,7 @@ const MailThird: React.FC<MailThirdType> = ({ stage, setStage }) => {
         desc="*mp4형식의 동영상 파일만 업로드 가능해요."
       >
         <Wrap>
-          <img src={Mail1} alt="" />
+          <img src={process.env.PUBLIC_URL + `/img/mail${mailIndex + 1}.png`} alt="" />
           <div className="receiver">홍길동</div>
           {video.length === 0 ? (
             <div className="dragWrap" onDragOver={dragOver} onDrop={onDropFiles} onChange={onInputFile}>
@@ -67,7 +68,10 @@ const MailThird: React.FC<MailThirdType> = ({ stage, setStage }) => {
                   <progress ref={progressRef} value="100" max="100" />
                   {video[0].size}
                 </label>
-                <button>자막 생성 완료</button>
+                <button>
+                  <img src={CheckIcon} alt="" />
+                  자막 생성 완료
+                </button>
               </div>
             </div>
           )}
@@ -191,6 +195,7 @@ const Wrap = styled.div`
         width: 147px;
         height: 35px;
         background: #0049fb;
+        background-image: url();
         border-radius: 8px;
         border: none;
         font-family: 'Pretendard';
@@ -198,9 +203,16 @@ const Wrap = styled.div`
         font-weight: 600;
         font-size: 14px;
         line-height: 20px;
+        display: flex;
         align-items: center;
-        text-align: center;
+        justify-content: center;
         color: #ffffff;
+        img {
+          width: 24px;
+          height: 24px;
+          margin-right: 8px;
+          margin-bottom: 3px;
+        }
       }
     }
   }

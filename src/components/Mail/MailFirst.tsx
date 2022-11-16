@@ -5,9 +5,10 @@ const MailBasic = process.env.PUBLIC_URL + '/img/mailBasic.png';
 type MailFirstType = {
   stage: number;
   setStage: (v: number) => void;
+  date: string;
 };
 
-const MailFirst: React.FC<MailFirstType> = ({ stage, setStage }) => {
+const MailFirst: React.FC<MailFirstType> = ({ stage, setStage, date }) => {
   return (
     <>
       <MailLayout
@@ -23,7 +24,7 @@ const MailFirst: React.FC<MailFirstType> = ({ stage, setStage }) => {
             홍길동
             <span>8</span>
           </div>
-          <div className="date">2022.11.01</div>
+          <div className="date">{date}</div>
           <div className="send">박세희 드림</div>
         </Wrap>
       </MailLayout>

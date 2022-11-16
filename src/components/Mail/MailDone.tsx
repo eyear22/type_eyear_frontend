@@ -5,9 +5,10 @@ const MailEnvelope = process.env.PUBLIC_URL + '/img/envelope.png';
 type MailDoneType = {
   stage: number;
   setStage: (v: number) => void;
+  mailIndex: number;
 };
 
-const MailDone: React.FC<MailDoneType> = ({ stage, setStage }) => {
+const MailDone: React.FC<MailDoneType> = ({ stage, setStage, mailIndex }) => {
   return (
     <>
       <MailLayout

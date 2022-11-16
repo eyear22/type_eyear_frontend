@@ -15,11 +15,11 @@ const Mail5 = process.env.PUBLIC_URL + '/img/mail5.png';
 type MailSecondType = {
   stage: number;
   setStage: (v: number) => void;
+  setMailIndex: (v: number) => void;
+  date: string;
 };
 
-const MailSecond: React.FC<MailSecondType> = ({ stage, setStage }) => {
-  const [mailIndex, setMailIndex] = useState(0);
-  // mailIndex
+const MailSecond: React.FC<MailSecondType> = ({ stage, setStage, setMailIndex, date }) => {
   const settings = {
     dots: false,
     infinite: false,
@@ -42,7 +42,6 @@ const MailSecond: React.FC<MailSecondType> = ({ stage, setStage }) => {
       >
         <Wrap>
           <CustomSlider {...settings}>
-            <img src={MailBasic} alt="" />
             <img src={Mail1} alt="" />
             <img src={Mail2} alt="" />
             <img src={Mail3} alt="" />
@@ -50,7 +49,7 @@ const MailSecond: React.FC<MailSecondType> = ({ stage, setStage }) => {
             <img src={Mail5} alt="" />
           </CustomSlider>
           <div className="receiver">홍길동</div>
-          <div className="date">2022.11.01</div>
+          <div className="date">{date}</div>
           <div className="send">박세희 드림</div>
           <div className="card">EYEAR</div>
         </Wrap>
