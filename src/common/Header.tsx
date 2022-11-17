@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const logo = process.env.PUBLIC_URL + '/img/logo.png';
@@ -5,19 +6,30 @@ const person = process.env.PUBLIC_URL + '/img/person-frame.png';
 const arrow = process.env.PUBLIC_URL + '/img/arrow.png';
 
 const Header = () => {
+  const user = ['박세희'];
   return (
     <>
       <Container>
         <Logo src={logo} alt="" />
         <Menu>
           <li>서비스 소개</li>
-          <li>우편 서비스</li>
+          <li>
+            <StyledLink to="/mail">우편 서비스</StyledLink>
+          </li>
           <li>예약 서비스</li>
         </Menu>
         <UserWrap>
-          <span>로그인</span>
-          <span>문의하기</span>
-          <img src={person} alt="" />
+          {user.length === 0 ? (
+            <>
+              <span>로그인</span>
+              <span>문의하기</span>
+            </>
+          ) : (
+            <>
+              <img src={person} alt="" />
+              <span>{user[0] + '님'}</span>
+            </>
+          )}
           <button>
             병원 서비스
             <img src={arrow} alt="" />
@@ -55,6 +67,7 @@ const Menu = styled.ul`
   text-align: center;
   margin: 0;
   padding: 0;
+
   li:first-child {
     margin-left: 77px;
   }
@@ -68,11 +81,17 @@ const Menu = styled.ul`
     line-height: 120%;
     text-align: center;
     color: #0049fb;
+
     :hover {
       cursor: pointer;
       border-bottom: 3px solid #0049fb;
     }
   }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
 
 const UserWrap = styled.div`
@@ -84,7 +103,7 @@ const UserWrap = styled.div`
     width: 18px;
     height: 18px;
     cursor: pointer;
-    display: none;
+    margin-right: 4px;
   }
   span {
     font-family: 'Pretendard';
