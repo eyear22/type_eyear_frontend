@@ -1,12 +1,16 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const logo = process.env.PUBLIC_URL + '/img/logo.png';
 const person = process.env.PUBLIC_URL + '/img/person-frame.png';
 const arrow = process.env.PUBLIC_URL + '/img/arrow.png';
+const dropdown = process.env.PUBLIC_URL + '/img/dropdown.png';
 
 const Header = () => {
-  const user = ['박세희'];
+  const user: Array<string> = ['김세희'];
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   return (
     <>
       <Container>
@@ -25,10 +29,18 @@ const Header = () => {
               <span>문의하기</span>
             </>
           ) : (
-            <>
+            <LoginUserWrap onClick={() => setDropdownOpen(!dropdownOpen)} open={dropdownOpen}>
               <img src={person} alt="" />
               <span>{user[0] + '님'}</span>
-            </>
+              <img src={dropdown} alt="" className="dropdown" />
+              {dropdownOpen && (
+                <DropDownWrap>
+                  <li>보낸 우편함</li>
+                  <li>예약 내역</li>
+                  <li className="logout">로그아웃</li>
+                </DropDownWrap>
+              )}
+            </LoginUserWrap>
           )}
           <button>
             병원 서비스
@@ -99,12 +111,6 @@ const UserWrap = styled.div`
   align-items: center;
   margin-left: auto;
   margin-right: 134px;
-  img {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    margin-right: 4px;
-  }
   span {
     font-family: 'Pretendard';
     font-style: normal;
@@ -131,6 +137,79 @@ const UserWrap = styled.div`
       margin-left: 13px;
       width: 5px;
       height: 10px;
+    }
+  }
+`;
+
+const LoginUserWrap = styled.div<{ open: boolean }>`
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  img {
+    width: 18px;
+    height: 18px;
+    margin-right: 4px;
+  }
+  span {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: #0049fb;
+    margin-right: 4px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .dropdown {
+    width: 24px;
+    height: 24px;
+    margin-right: 24px;
+    transform: ${(props) => props.open && 'rotate(180deg)'};
+  }
+`;
+
+const DropDownWrap = styled.ul`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 16px;
+  width: 113px;
+  height: 150px;
+  background: #ffffff;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  list-style: none;
+  li {
+    display: flex;
+    box-sizing: border-box;
+    padding: 10px 8px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    border-radius: 6px;
+    color: #0049fb;
+    &:hover {
+      background: #f1f5ff;
+    }
+  }
+  .logout {
+    color: #bbbbbb;
+    margin-top: 13px;
+    &:hover {
+      background: none;
+      text-decoration-line: underline;
+      color: #454545;
     }
   }
 `;
