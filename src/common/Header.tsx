@@ -35,7 +35,9 @@ const Header = () => {
               <img src={dropdown} alt="" className="dropdown" />
               {dropdownOpen && (
                 <DropDownWrap>
-                  <li>보낸 우편함</li>
+                  <li>
+                    <StyledLink to="/sentMail">보낸 우편함</StyledLink>
+                  </li>
                   <li>예약 내역</li>
                   <li className="logout">로그아웃</li>
                 </DropDownWrap>
@@ -153,7 +155,7 @@ const LoginUserWrap = styled.div<{ open: boolean }>`
   img {
     width: 18px;
     height: 18px;
-    margin-right: 4px;
+    margin-right: 7px;
   }
   span {
     font-family: 'Pretendard';
