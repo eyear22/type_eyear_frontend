@@ -3,7 +3,7 @@ import MyPageLayout from '../../layout/MyPageLayout';
 const SentMailContainer = () => {
   return (
     <>
-      <MyPageLayout>
+      <MyPageLayout page="sentMail">
         <div>SentMailContainer</div>
         <div>SentMailContainer</div>
         <div>SentMailContainer</div>
