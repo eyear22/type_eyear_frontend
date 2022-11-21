@@ -52,6 +52,7 @@ const Container = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   margin-top: 22px;
+  box-sizing: border-box;
 `;
 
 const SideMenu = styled.ul`
