@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import MyPageLayout from '../../layout/MyPageLayout';
+const MAilBasic = process.env.PUBLIC_URL + '/img/MailBasic.png';
 
 const SentMailContainer = () => {
   return (
@@ -7,15 +8,16 @@ const SentMailContainer = () => {
       <MyPageLayout page="sentMail">
         <Top>
           <h1>보낸 편지함</h1>
-          <div>드롭다운</div>
+          <div>최신순</div>
         </Top>
-        <div>SentMailContainer</div>
-        <div>SentMailContainer</div>
-        <div>SentMailContainer</div>
-        <div>SentMailContainer</div>
-        <div>SentMailContainer</div>
-        <div>SentMailContainer</div>
-        <div>SentMailContainer</div>
+        <Content>
+          <img src={MAilBasic} alt="" />
+          <img src={MAilBasic} alt="" />
+          <img src={MAilBasic} alt="" />
+          <img src={MAilBasic} alt="" />
+          <img src={MAilBasic} alt="" />
+          <img src={MAilBasic} alt="" />
+        </Content>
       </MyPageLayout>
     </>
   );
@@ -24,7 +26,6 @@ const SentMailContainer = () => {
 const Top = styled.div`
   display: flex;
   width: 100%;
-  background-color: aliceblue;
   margin-bottom: 29px;
   align-items: center;
   justify-content: space-between;
@@ -35,6 +36,20 @@ const Top = styled.div`
     font-size: 20px;
     line-height: 120%;
     color: #000000;
+  }
+`;
+
+const Content = styled.div`
+  display: inline-block;
+  width: 100%;
+  img {
+    width: 32%;
+    height: 183px;
+    margin-right: 2%;
+    &:nth-child(3n) {
+      margin-right: 0px;
+    }
+    object-fit: cover;
   }
 `;
 

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import MailLayout from './MailLayout';
@@ -37,7 +38,29 @@ const MailThird: React.FC<MailThirdType> = ({ stage, setStage, mailIndex }) => {
   // 전송 버튼
   const onClickSend = () => {
     if (confirm('영상 우편을 전송하시겠습니까?')) {
-      setStage(3);
+      console.log(video[0]);
+      console.log(mailIndex);
+
+      const formData = new FormData();
+      formData.append('video', video[0]);
+      formData.append('stampNumber', '0');
+      formData.append('cardNumber', mailIndex.toString());
+
+      axios({
+        method: 'post',
+        url: `http://localhost:3333/post`,
+        headers: { 'Content-Type': 'multipart/form-data' },
+        data: formData,
+      })
+        .then((res) => {
+          if (res.status == 201) {
+            console.log('성공');
+          }
+        })
+        .catch((err) => {
+          alert('편지 전송에 실패하였습니다.');
+          console.log('실패');
+        });
     }
   };
 

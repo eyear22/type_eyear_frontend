@@ -94,7 +94,9 @@ const MenuItem = styled.li<{ select: boolean }>`
   }
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+  width: calc(100% - 264px);
+`;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
