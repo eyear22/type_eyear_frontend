@@ -11,6 +11,7 @@ import MailPage from './pages/MailPage';
 import MainPage from './pages/MainPage';
 import SentMailPage from './pages/SentMailPage';
 import UserPage from './pages/UserPage';
+import LoginPage from './pages/LoginPage';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ReduxThunk.withExtraArgument({}), logger)));
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/mail" element={<MailPage />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/sentMail" element={<SentMailPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </PersistGate>
     </Provider>

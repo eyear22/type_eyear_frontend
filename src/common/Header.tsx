@@ -8,7 +8,7 @@ const arrow = process.env.PUBLIC_URL + '/img/arrow.png';
 const dropdown = process.env.PUBLIC_URL + '/img/dropdown.png';
 
 const Header = () => {
-  const user: Array<string> = ['김세희'];
+  const user: Array<string> = [];
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
@@ -25,7 +25,9 @@ const Header = () => {
         <UserWrap>
           {user.length === 0 ? (
             <>
-              <span>로그인</span>
+              <span>
+                <StyledLink to="/login">로그인</StyledLink>
+              </span>
               <span>문의하기</span>
             </>
           ) : (
