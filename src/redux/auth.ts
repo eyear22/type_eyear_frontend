@@ -3,6 +3,9 @@ import * as authAPI from '../api/auth';
 const AUTH = 'AUTH'; //로그인 요청
 const AUTH_SUCCESS = 'AUTH_SUCCESS';
 const AUTH_ERROR = 'AUTH_ERROR';
+const REGISTER = 'REGISTER'; //회원가입 요청
+const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+const REGISTER_ERROR = 'REGISTER_ERROR';
 
 const initialState = {
   isLoading: null,
@@ -20,6 +23,18 @@ export const Login = (email: string, password: string) => async (dispatch: any) 
     dispatch({ type: AUTH_ERROR, error: e });
   }
 };
+
+// 회원가입
+export const Register =
+  (email: string, password: string, name: string, phoneNumber: string) => async (dispatch: any) => {
+    dispatch({ type: REGISTER });
+    try {
+      const register = await authAPI.RegisterAPI(email, password, name, phoneNumber);
+      dispatch({ type: REGISTER_SUCCESS, register: register });
+    } catch (e) {
+      dispatch({ type: REGISTER_ERROR, error: e });
+    }
+  };
 
 export default function auth(state = initialState, action: any) {
   switch (action.type) {
@@ -39,6 +54,29 @@ export default function auth(state = initialState, action: any) {
         error: null,
       };
     case AUTH_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        data: null,
+        action: action,
+        error: action.error,
+      };
+    case REGISTER:
+      return {
+        ...state,
+        isLoading: true,
+        data: null,
+        error: null,
+      };
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        data: action.register.data,
+        action: action,
+        error: null,
+      };
+    case REGISTER_ERROR:
       return {
         ...state,
         isLoading: false,

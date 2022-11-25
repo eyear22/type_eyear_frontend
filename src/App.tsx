@@ -12,6 +12,7 @@ import MainPage from './pages/MainPage';
 import SentMailPage from './pages/SentMailPage';
 import UserPage from './pages/UserPage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ReduxThunk.withExtraArgument({}), logger)));
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/user" element={<UserPage />} />
           <Route path="/sentMail" element={<SentMailPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
       </PersistGate>
     </Provider>
