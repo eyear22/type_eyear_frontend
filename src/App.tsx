@@ -13,6 +13,7 @@ import SentMailPage from './pages/SentMailPage';
 import UserPage from './pages/UserPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import MailDetailPage from './pages/MailDetailPage';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ReduxThunk.withExtraArgument({}), logger)));
 
@@ -25,6 +26,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/mail" element={<MailPage />} />
+          <Route path="/mail/:id" element={<MailDetailPage />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/sentMail" element={<SentMailPage />} />
           <Route path="/login" element={<LoginPage />} />
