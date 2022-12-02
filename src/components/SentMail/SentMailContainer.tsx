@@ -1,11 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import MyPageLayout from '../../layout/MyPageLayout';
 import { GetSendMailList } from '../../redux/mail';
+import MailDetailModal from '../MailDetail/MailDetailModal';
 import SentMailList from './SentMailList';
 
 const SentMailContainer = () => {
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch<any>();
   useEffect(() => {
     dispatch(GetSendMailList());
@@ -18,16 +20,9 @@ const SentMailContainer = () => {
           <h1>보낸 편지함</h1>
           <div>최신순</div>
         </Top>
-        <SentMailList />
-        {/* <Content>
-          <img src={MAilBasic} alt="" />
-          <img src={MAilBasic} alt="" />
-          <img src={MAilBasic} alt="" />
-          <img src={MAilBasic} alt="" />
-          <img src={MAilBasic} alt="" />
-          <img src={MAilBasic} alt="" />
-        </Content> */}
+        <SentMailList open={open} setOpen={setOpen} />
       </MyPageLayout>
+      {open && <MailDetailModal open={open} setOpen={setOpen} />}
     </>
   );
 };

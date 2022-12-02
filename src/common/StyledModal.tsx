@@ -2,9 +2,9 @@ import styled from 'styled-components';
 const CloseIcon = process.env.PUBLIC_URL + '/img/Close_XL.png';
 
 type ModalType = {
-  open: number;
+  open: boolean;
   setOpen: (v: boolean) => void;
-  children: number;
+  children: React.ReactNode;
 };
 
 const StyledModal: React.FC<ModalType> = ({ open, setOpen, children }) => {
@@ -14,6 +14,9 @@ const StyledModal: React.FC<ModalType> = ({ open, setOpen, children }) => {
   return (
     <Container>
       <Wrap>
+        <Top>
+          <h1>영상 우편을 확인해보세요!</h1>
+        </Top>
         <CloseButton src={CloseIcon} alt="" onClick={close} />
         <Content>{children}</Content>
       </Wrap>
@@ -31,33 +34,51 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 10;
 `;
 
 const Wrap = styled.div`
   position: absolute;
-  width: 300px;
-  height: 500px;
-  padding: 40px;
+  width: 1128px;
+  height: 686px;
   text-align: center;
   background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  border-radius: 21px;
+`;
+
+const Top = styled.div`
+  display: flex;
+  background: #f7f7f8;
+  height: 124px;
+  border-radius: 21px 21px 0px 0px;
+  h1 {
+    margin-left: 48px;
+    margin-top: 67px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.2252px;
+    line-height: 24px;
+    color: #000000;
+  }
 `;
 
 const CloseButton = styled.img`
   position: absolute;
-  top: 15px;
-  right: 15px;
+  width: 24px;
+  height: 24px;
+  top: 55px;
+  right: 45px;
   border: none;
   color: rgba(0, 0, 0, 0.7);
   background-color: transparent;
-  font-size: 20px;
+  cursor: pointer;
 `;
 
 const Content = styled.div`
   display: flex;
-  margin-top: 20px;
+  justify-content: space-between;
+  margin: 56px;
 `;
 
 export default StyledModal;

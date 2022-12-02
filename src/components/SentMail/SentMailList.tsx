@@ -8,12 +8,16 @@ const Mail3 = process.env.PUBLIC_URL + '/img/mail3.png';
 const Mail4 = process.env.PUBLIC_URL + '/img/mail4.png';
 const Mail5 = process.env.PUBLIC_URL + '/img/mail5.png';
 
-const SentMailList = () => {
+type sentMailListType = {
+  open: boolean;
+  setOpen: (v: boolean) => void;
+};
+
+const SentMailList: React.FC<sentMailListType> = ({ open, setOpen }) => {
   const mailList = useSelector((state: any) => state.mail.data);
-  console.log(mailList);
 
-  const getCardNumber = (id: number) => 'Mail' + id.toString();
-
+  const getCardNumber = (id: string) => 'Mail' + id.toString();
+  const value = 'Mail1';
   return (
     <Container>
       {mailList && mailList.posts.length < 1 ? (
@@ -22,13 +26,14 @@ const SentMailList = () => {
         </>
       ) : (
         <>
-          {mailList &&
-            mailList.posts.map((item: any, index: number) => (
-              <div key={index}>
-                <div>{item.post_cardNumber}</div>
-                <img src={getCardNumber(item.post_cardNumber)} alt="" />
-              </div>
-            ))}
+          <Content>
+            {mailList &&
+              mailList.posts.map((item: any, index: number) => (
+                <div className="item" key={index} onClick={() => setOpen(true)}>
+                  <img src={`img/mail${item.post_cardNumber}.png`} alt="" />
+                </div>
+              ))}
+          </Content>
         </>
       )}
     </Container>
@@ -36,16 +41,24 @@ const SentMailList = () => {
 };
 
 const Container = styled.div`
-  display: inline-block;
   width: 100%;
-  img {
+`;
+
+const Content = styled.div`
+  .item {
+    display: inline-block;
+    cursor: pointer;
     width: 32%;
-    height: 183px;
     margin-right: 2%;
+    margin-bottom: 29px;
     &:nth-child(3n) {
       margin-right: 0px;
     }
-    object-fit: cover;
+    img {
+      height: 183px;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 `;
 
