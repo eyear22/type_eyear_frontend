@@ -8,7 +8,7 @@ const arrow = process.env.PUBLIC_URL + '/img/arrow.png';
 const dropdown = process.env.PUBLIC_URL + '/img/dropdown.png';
 
 const Header = () => {
-  const user: Array<string> = [];
+  const user: Array<string> = ['세희'];
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (

@@ -39,12 +39,13 @@ const MailThird: React.FC<MailThirdType> = ({ stage, setStage, mailIndex }) => {
   const onClickSend = () => {
     if (confirm('영상 우편을 전송하시겠습니까?')) {
       console.log(video[0]);
-      console.log(mailIndex);
 
+      const num = mailIndex + 1;
+      console.log(num);
       const formData = new FormData();
       formData.append('video', video[0]);
       formData.append('stampNumber', '0');
-      formData.append('cardNumber', mailIndex.toString());
+      formData.append('cardNumber', num.toString());
 
       axios({
         method: 'post',
@@ -55,6 +56,7 @@ const MailThird: React.FC<MailThirdType> = ({ stage, setStage, mailIndex }) => {
         .then((res) => {
           if (res.status == 201) {
             console.log('성공');
+            setStage(3);
           }
         })
         .catch((err) => {

@@ -25,7 +25,6 @@ const MailLayout: React.FC<MailLayoutType> = ({
   title,
   desc,
 }) => {
-  console.log(stage);
   return (
     <>
       <Container>
