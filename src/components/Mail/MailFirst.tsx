@@ -15,14 +15,14 @@ const MailFirst: React.FC<MailFirstType> = ({ stage, setStage, date }) => {
         stage={stage}
         setStage={setStage}
         leftArrow={false}
-        title={'홍길동님께' + '\n' + '편지를 보내볼까요?'}
+        title={'박노인님께' + '\n' + '편지를 보내볼까요?'}
         desc="*등록된 가족은 마이페이지에서 등록 및 수정이 가능해요."
       >
         <Wrap>
           <img src={MailBasic} alt="" />
           <div className="receiver">
-            홍길동
-            <span>8</span>
+            박노인
+            <span>10</span>
           </div>
           <div className="date">{date}</div>
           <div className="send">박세희 드림</div>

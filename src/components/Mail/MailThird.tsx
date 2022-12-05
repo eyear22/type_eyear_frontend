@@ -77,7 +77,7 @@ const MailThird: React.FC<MailThirdType> = ({ stage, setStage, mailIndex }) => {
       >
         <Wrap>
           <img src={process.env.PUBLIC_URL + `/img/mail${mailIndex + 1}.png`} alt="" />
-          <div className="receiver">홍길동</div>
+          <div className="receiver">박노인</div>
           {video.length === 0 ? (
             <div className="dragWrap" onDragOver={dragOver} onDrop={onDropFiles} onChange={onInputFile}>
               <img src={UploadIcon} alt="" />
