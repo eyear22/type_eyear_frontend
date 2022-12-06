@@ -15,8 +15,6 @@ type sentMailListType = {
 
 const SentMailList: React.FC<sentMailListType> = ({ open, setOpen }) => {
   const mailList = useSelector((state: any) => state.mail.data);
-
-  const getCardNumber = (id: string) => 'Mail' + id.toString();
   const value = 'Mail1';
   return (
     <Container>

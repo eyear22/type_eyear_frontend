@@ -17,7 +17,7 @@ const MyPageLayout: React.FC<MyPageLayoutType> = ({ children, page }) => {
       <Container>
         <SideMenu>
           <MenuItem select={page === 'sentMail'}>
-            <StyledLink to="/sentMail">보낸 편지함</StyledLink>
+            <StyledLink to="/sentMail">보낸 우편함</StyledLink>
           </MenuItem>
           <MenuItem select={page === 'a'}>수신인 관리</MenuItem>
           <MenuItem select={page === 'b'}>예약 내역</MenuItem>
