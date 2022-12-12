@@ -1,9 +1,10 @@
 import Header from '../common/Header';
+import HomeContainer from '../components/Main/HomeContainer';
 
 const MainPage = () => (
   <>
     <Header />
-    <div style={{ marginTop: 92 }}>Main Page</div>
+    <HomeContainer />
   </>
 );
 
