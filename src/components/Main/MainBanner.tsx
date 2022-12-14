@@ -10,7 +10,7 @@ const MainBanner = () => {
 
 const Container = styled.div`
   background: #f1f5ff;
-  height: 400px;
+  height: 300px;
 `;
 
 export default MainBanner;
