@@ -15,13 +15,9 @@ export const TestAPI = () =>
   });
 
 export const RegisterAPI = (email: string, password: string, name: string, phoneNumber: string) =>
-  api.post(
-    `${BASE_URL}/user`,
-    {
-      email: email,
-      password: password,
-      name: name,
-      phoneNumber: phoneNumber,
-    },
-    { withCredentials: true }
-  );
+  api.post(`${BASE_URL}/user`, {
+    email: email,
+    password: password,
+    name: name,
+    phoneNumber: phoneNumber,
+  });

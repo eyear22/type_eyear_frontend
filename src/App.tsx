@@ -14,6 +14,8 @@ import UserPage from './pages/UserPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MailDetailPage from './pages/MailDetailPage';
+import ReservationPage from './pages/ReservationPage';
+import ReservationListPage from './pages/ReservationListPage';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ReduxThunk.withExtraArgument({}), logger)));
 
@@ -31,6 +33,8 @@ const App = () => (
           <Route path="/sentMail" element={<SentMailPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/reservation" element={<ReservationPage />} />
+          <Route path="/reservationList" element={<ReservationListPage />} />
         </Routes>
       </PersistGate>
     </Provider>

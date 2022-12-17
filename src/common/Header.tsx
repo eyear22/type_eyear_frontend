@@ -20,7 +20,9 @@ const Header = () => {
           <li>
             <StyledLink to="/mail">우편 서비스</StyledLink>
           </li>
-          <li>예약 서비스</li>
+          <li>
+            <StyledLink to="/reservation">예약 서비스</StyledLink>
+          </li>
         </Menu>
         <UserWrap>
           {user.length === 0 ? (
