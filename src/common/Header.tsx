@@ -42,7 +42,9 @@ const Header = () => {
                   <li>
                     <StyledLink to="/sentMail">보낸 우편함</StyledLink>
                   </li>
-                  <li>예약 내역</li>
+                  <li>
+                    <StyledLink to="/reservationList">예약 내역</StyledLink>
+                  </li>
                   <li className="logout">로그아웃</li>
                 </DropDownWrap>
               )}

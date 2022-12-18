@@ -2,21 +2,22 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import ReservationLayout from '../../layout/ReservationLayout';
-import { GetSendMailList } from '../../redux/mail';
+import { GetReservation } from '../../redux/reservation';
+import ReservationList from './ReservationList';
 
 const ReservationListContainer = () => {
   const dispatch = useDispatch<any>();
   useEffect(() => {
-    dispatch(GetSendMailList());
+    dispatch(GetReservation());
   }, []);
 
   return (
     <>
       <ReservationLayout page="reservationList">
         <Top>
-          <h1>보낸 편지함</h1>
-          <div>최신순</div>
+          <h1>예약 내역</h1>
         </Top>
+        <ReservationList />
       </ReservationLayout>
     </>
   );

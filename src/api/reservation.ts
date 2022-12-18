@@ -12,3 +12,9 @@ export const postReservationAPI = (reservationDate: string, timetableIndex: numb
       headers: { Authorization: `Bearer ${getCookie('access_token')}` },
     }
   );
+
+// 예약 리스트
+export const getReservationAPI = () =>
+  api.get(`${BASE_URL}/reservation`, {
+    headers: { Authorization: `Bearer ${getCookie('access_token')}` },
+  });
