@@ -25,7 +25,7 @@ const ReservationForm = () => {
     console.log(time);
     console.log(date);
     console.log(face);
-    dispatch(PostReservation(date, time.value, face === 'notface'));
+    dispatch(PostReservation(date, time.value, face === 'notface' ? false : true));
   };
   return (
     <>

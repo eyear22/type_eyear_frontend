@@ -1,12 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-const MAilBasic = process.env.PUBLIC_URL + '/img/mailBasic.png';
-const Mail1 = process.env.PUBLIC_URL + '/img/mail1.png';
-const Mail2 = process.env.PUBLIC_URL + '/img/mail2.png';
-const Mail3 = process.env.PUBLIC_URL + '/img/mail3.png';
-const Mail4 = process.env.PUBLIC_URL + '/img/mail4.png';
-const Mail5 = process.env.PUBLIC_URL + '/img/mail5.png';
 
 type sentMailListType = {
   open: boolean;
@@ -15,7 +9,7 @@ type sentMailListType = {
 
 const SentMailList: React.FC<sentMailListType> = ({ open, setOpen }) => {
   const mailList = useSelector((state: any) => state.mail.data);
-  const value = 'Mail1';
+
   return (
     <Container>
       {mailList && mailList.posts.length < 1 ? (
