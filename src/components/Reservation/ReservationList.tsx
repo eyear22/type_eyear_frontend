@@ -29,7 +29,7 @@ const ReservationList = () => {
       <Container>
         <Box open={approve}>
           <h4>
-            승인된 면회<span>{reservations != null && reservations.reservations['1'].length}</span>
+            승인된 면회<span>{reservations && reservations.reservations && reservations.reservations['1'].length}</span>
           </h4>
           <button onClick={() => setApprove(!approve)}>
             <img src={approve ? MinusIcon : PlusIcon} alt="" />
@@ -37,7 +37,8 @@ const ReservationList = () => {
         </Box>
         {approve && (
           <UnderBox>
-            {reservations != null &&
+            {reservations &&
+              reservations.reservations &&
               reservations.reservations['1'].map((item: any, index: number) => (
                 <Item key={index}>
                   <div className="face">{item.reservation_faceToface ? '대면' : '비대면'}</div>
@@ -49,7 +50,7 @@ const ReservationList = () => {
         )}
         <Box open={request}>
           <h4>
-            신청한 면회<span>{reservations != null && reservations.reservations['0'].length}</span>
+            신청한 면회<span>{reservations && reservations.reservations && reservations.reservations['0'].length}</span>
           </h4>
           <button onClick={() => setRequest(!request)}>
             <img src={request ? MinusIcon : PlusIcon} alt="" />
@@ -57,7 +58,8 @@ const ReservationList = () => {
         </Box>
         {request && (
           <UnderBox>
-            {reservations != null &&
+            {reservations &&
+              reservations.reservations &&
               reservations.reservations['0'].map((item: any, index: number) => (
                 <Item key={index}>
                   <div className="face">{item.reservation_faceToface ? '대면' : '비대면'}</div>
@@ -69,7 +71,8 @@ const ReservationList = () => {
         )}
         <Box open={deny}>
           <h4>
-            거절된 면회<span>{reservations != null && reservations.reservations['-1'].length}</span>
+            거절된 면회
+            <span>{reservations && reservations.reservations && reservations.reservations['-1'].length}</span>
           </h4>
           <button onClick={() => setDeny(!deny)}>
             <img src={deny ? MinusIcon : PlusIcon} alt="" />
@@ -77,7 +80,8 @@ const ReservationList = () => {
         </Box>
         {deny && (
           <UnderBox>
-            {reservations != null &&
+            {reservations &&
+              reservations.reservations &&
               reservations.reservations['-1'].map((item: any, index: number) => (
                 <Item key={index}>
                   <div className="face">{item.reservation_faceToface ? '대면' : '비대면'}</div>
