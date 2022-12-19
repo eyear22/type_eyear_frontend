@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import BottomBanner from './BottomBanner';
 import MainBanner from './MainBanner';
 import MidBanner from './MidBanner';
 
@@ -8,7 +7,6 @@ const HomeContainer = () => {
     <Container>
       <MainBanner />
       <MidBanner />
-      <BottomBanner />
     </Container>
   );
 };
