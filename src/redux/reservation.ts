@@ -20,6 +20,7 @@ export const PostReservation =
     try {
       const reservation = await reservationAPI.postReservationAPI(reservationDate, timetableIndex, faceToface);
       dispatch({ type: POST_RESERVATION_SUCCESS, reservation: reservation });
+      alert('예약이 등록되었습니다.');
     } catch (e) {
       dispatch({ type: POST_RESERVATION_ERROR, error: e });
     }

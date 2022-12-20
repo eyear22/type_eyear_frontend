@@ -50,7 +50,7 @@ const MailSecond: React.FC<MailSecondType> = ({ stage, setStage, setMailIndex, d
           </CustomSlider>
           <div className="receiver">박노인</div>
           <div className="date">{date}</div>
-          <div className="send">박세희 드림</div>
+          <div className="send">김수영 드림</div>
           <div className="card">EYEAR</div>
         </Wrap>
       </MailLayout>

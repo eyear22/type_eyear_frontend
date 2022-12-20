@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
+import { getCookie } from '../../util/cookie';
 import MailLayout from './MailLayout';
 const UploadIcon = process.env.PUBLIC_URL + '/img/mail_upload.png';
 const SendIcon = process.env.PUBLIC_URL + '/img/send.png';
@@ -50,7 +51,7 @@ const MailThird: React.FC<MailThirdType> = ({ stage, setStage, mailIndex }) => {
       axios({
         method: 'post',
         url: `http://localhost:3333/post`,
-        headers: { 'Content-Type': 'multipart/form-data' },
+        headers: { 'Content-Type': 'multipart/form-data', 'Authorization': `Bearer ${getCookie('access_token')}` },
         data: formData,
       })
         .then((res) => {

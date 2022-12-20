@@ -12,7 +12,7 @@ const MyPageLayout: React.FC<MyPageLayoutType> = ({ children, page }) => {
   return (
     <>
       <Banner>
-        <div className="title">{'안녕하세요.\n박세희 보호자님!'}</div>
+        <div className="title">{'안녕하세요.\n김수영 보호자님!'}</div>
       </Banner>
       <Container>
         <SideMenu>

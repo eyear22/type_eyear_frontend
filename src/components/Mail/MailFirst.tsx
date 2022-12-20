@@ -25,7 +25,7 @@ const MailFirst: React.FC<MailFirstType> = ({ stage, setStage, date }) => {
             <span>10</span>
           </div>
           <div className="date">{date}</div>
-          <div className="send">박세희 드림</div>
+          <div className="send">김수영 드림</div>
         </Wrap>
       </MailLayout>
     </>

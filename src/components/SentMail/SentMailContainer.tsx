@@ -17,7 +17,7 @@ const SentMailContainer = () => {
     <>
       <MyPageLayout page="sentMail">
         <Top>
-          <h1>보낸 편지함</h1>
+          <h1>보낸 우편함</h1>
           <div>최신순</div>
         </Top>
         <SentMailList open={open} setOpen={setOpen} />
