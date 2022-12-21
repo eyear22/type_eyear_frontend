@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet';
 import Header from '../common/Header';
 import HomeContainer from '../components/Main/HomeContainer';
 
+// 메인 페이지
 const MainPage = () => (
   <>
     <Helmet>
