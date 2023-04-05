@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const logo = process.env.PUBLIC_URL + '/img/logo.png';
-const person = process.env.PUBLIC_URL + '/img/person-frame.png';
+const logo = process.env.PUBLIC_URL + '/img/eyear_logo.png';
+const person = process.env.PUBLIC_URL + '/img/person.png';
 const arrow = process.env.PUBLIC_URL + '/img/arrow.png';
 const dropdown = process.env.PUBLIC_URL + '/img/dropdown.png';
 
@@ -18,10 +18,10 @@ const Header = () => {
         <Menu>
           <li>서비스 소개</li>
           <li>
-            <StyledLink to="/mail">우편 서비스</StyledLink>
+            <StyledLink to="/mail">영상 우편 보내기</StyledLink>
           </li>
           <li>
-            <StyledLink to="/reservation">예약 서비스</StyledLink>
+            <StyledLink to="/reservation">면회 예약하기</StyledLink>
           </li>
         </Menu>
         <UserWrap>
@@ -65,18 +65,20 @@ const Container = styled.header`
   align-items: center;
   position: fixed;
   top: 0px;
-  left: 0px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
   background-color: #ffffff;
   z-index: 2;
-  width: 100%;
-  height: 92px;
+  height: 110px;
+  width: 1322px;
 `;
 
 const Logo = styled.img`
-  width: 86px;
-  height: 26px;
+  height: 18px;
+  width: 82px;
   object-fit: contain;
-  margin-left: 134px;
+  margin-left: 50px;
   cursor: pointer;
 `;
 
@@ -89,22 +91,24 @@ const Menu = styled.ul`
   padding: 0;
 
   li:first-child {
-    margin-left: 77px;
+    margin-left: 42px;
   }
   li {
-    padding: 37px 0;
-    margin-left: 33px;
+    padding: 44px 10px;
+    margin-left: 23px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 120%;
-    text-align: center;
-    color: #0049fb;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+    color: #51cd89;
 
     :hover {
       cursor: pointer;
-      border-bottom: 3px solid #0049fb;
+      border-bottom: 2px solid #51cd89;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
     }
   }
 `;
@@ -118,31 +122,32 @@ const UserWrap = styled.div`
   display: flex;
   align-items: center;
   margin-left: auto;
-  margin-right: 134px;
+  margin-right: 95px;
   span {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 120%;
-    color: #0049fb;
+    color: #51cd89;
     margin-right: 32.5px;
   }
   button {
-    width: 124px;
-    height: 36px;
-    background: #0049fb;
+    width: 128px;
+    height: 38px;
+    background: #51cd89;
     border-radius: 20px;
     border: none;
     font-family: 'Pretendard';
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 120%;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
     color: #ffffff;
     cursor: pointer;
     img {
-      margin-left: 13px;
+      margin-left: 14px;
       width: 5px;
       height: 10px;
     }
@@ -159,17 +164,18 @@ const LoginUserWrap = styled.div<{ open: boolean }>`
   -ms-user-select: none;
   user-select: none;
   img {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     margin-right: 7px;
   }
   span {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 120%;
-    color: #0049fb;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+    color: #51cd89;
     margin-right: 4px;
     &:hover {
       text-decoration: underline;
@@ -206,7 +212,7 @@ const DropDownWrap = styled.ul`
     font-size: 16px;
     line-height: 120%;
     border-radius: 6px;
-    color: #0049fb;
+    color: #51cd89;
     &:hover {
       background: #f1f5ff;
     }
