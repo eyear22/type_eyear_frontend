@@ -20,13 +20,14 @@ const MainTop = () => {
   );
 };
 
-const Container = styled.div`
-  height: 710px;
+const Container = styled.section`
+  height: auto;
   background: #edf6f1;
   padding-top: 110px;
+  padding-bottom: 109.32px;
 `;
 
-const TitleWrap = styled.section`
+const TitleWrap = styled.div`
   margin-top: 72px;
   width: 100%;
   display: flex;
