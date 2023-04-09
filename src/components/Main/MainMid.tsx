@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 const main1_1 = process.env.PUBLIC_URL + '/img/main1_1.png';
 const main1_2 = process.env.PUBLIC_URL + '/img/main1_2.png';
+const main2_1 = process.env.PUBLIC_URL + '/img/main2_1.png';
+const main2_2 = process.env.PUBLIC_URL + '/img/main2_2.png';
+const main2_3 = process.env.PUBLIC_URL + '/img/main2_3.png';
+const pointer = process.env.PUBLIC_URL + '/img/pointer.png';
 
 const MainMid = () => {
   return (
@@ -17,7 +21,16 @@ const MainMid = () => {
             <img className="main1_2" src={main1_2} alt="" />
           </div>
         </Section1>
-        <Section2>Main2</Section2>
+        <Section2>
+          <img className="main2_1" src={main2_1} alt="" />
+          <div className="imgWrap">
+            <img className="main2_2" src={main2_2} alt="" />
+            <img className="main2_3" src={main2_3} alt="" />
+            <div className="num">02</div>
+            <img className="pointer" src={pointer} alt="" />
+            <button>대면 면회 예약하기</button>
+          </div>
+        </Section2>
         <Section3>Main3</Section3>
       </Container>
     </>
@@ -39,7 +52,6 @@ const Section1 = styled.section`
     justify-content: space-between;
     margin-top: 60px;
   }
-
   .main1_1 {
     margin-top: 24px;
     width: 527.2px;
@@ -80,7 +92,75 @@ const Introduce = styled.div`
 `;
 
 const Section2 = styled.section`
+  width: 1322px;
+  margin: 0 auto;
   margin-top: 261.75px;
+  .imgWrap {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  .main2_1 {
+    margin-left: 200px;
+    width: 412.95px;
+    height: 100.66px;
+    object-fit: cover;
+  }
+  .main2_2 {
+    margin-top: 10px;
+    width: 483.15px;
+    height: 500.41px;
+    object-fit: cover;
+    transform: translateX(-40px);
+  }
+  .main2_3 {
+    width: 521.84px;
+    height: 411.02px;
+    transform: translateY(-50px);
+  }
+  .num {
+    position: absolute;
+    top: -100px;
+    right: 0;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27.9766px;
+    line-height: 34px;
+    letter-spacing: 0.182781px;
+    color: #ffffff;
+  }
+  button {
+    left: 446px;
+    bottom: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10.2322px 20px;
+    gap: 20.46px;
+    position: absolute;
+    width: 150px;
+    height: 47px;
+    background: #51cd89;
+    border: 1.02322px solid #ffffff;
+    box-shadow: 0px 8.18576px 55.2539px rgba(0, 0, 0, 0.18);
+    border-radius: 30.6966px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 31px;
+    text-align: center;
+    color: #ffffff;
+  }
+  .pointer {
+    position: absolute;
+    width: 49.11px;
+    height: 49.11px;
+    left: 610px;
+    bottom: 108px;
+  }
 `;
 
 const Section3 = styled.section`
