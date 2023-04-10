@@ -6,6 +6,9 @@ const main2_1 = process.env.PUBLIC_URL + '/img/main2_1.png';
 const main2_2 = process.env.PUBLIC_URL + '/img/main2_2.png';
 const main2_3 = process.env.PUBLIC_URL + '/img/main2_3.png';
 const pointer = process.env.PUBLIC_URL + '/img/pointer.png';
+const main3_1 = process.env.PUBLIC_URL + '/img/main3_1.png';
+const main3_2 = process.env.PUBLIC_URL + '/img/main3_2.png';
+const main3_3 = process.env.PUBLIC_URL + '/img/main3_3.png';
 
 const MainMid = () => {
   return (
@@ -31,7 +34,11 @@ const MainMid = () => {
             <button>대면 면회 예약하기</button>
           </div>
         </Section2>
-        <Section3>Main3</Section3>
+        <Section3>
+          <img className="main2_2" src={main3_1} alt="" />
+          <img className="main2_3" src={main3_2} alt="" />
+          <img className="pointer" src={main3_3} alt="" />
+        </Section3>
       </Container>
     </>
   );
