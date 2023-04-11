@@ -35,9 +35,12 @@ const MainMid = () => {
           </div>
         </Section2>
         <Section3>
-          <img className="main2_2" src={main3_1} alt="" />
-          <img className="main2_3" src={main3_2} alt="" />
-          <img className="pointer" src={main3_3} alt="" />
+          <div className="num">03</div>
+          <div className="imgWrap">
+            <img className="main3_1" src={main3_1} alt="" />
+            <img className="main3_2" src={main3_2} alt="" />
+            <img className="main3_3" src={main3_3} alt="" />
+          </div>
         </Section3>
       </Container>
     </>
@@ -171,7 +174,40 @@ const Section2 = styled.section`
 `;
 
 const Section3 = styled.section`
+  width: 1322px;
+  margin: 0 auto;
   margin-top: 230.29px;
+  .num {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27.4421px;
+    line-height: 33px;
+    letter-spacing: 0.179288px;
+    color: #ffffff;
+  }
+  .imgWrap {
+    margin-top: 26.22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  .main3_1 {
+    width: 511.87px;
+    height: 422.78px;
+  }
+  .main3_2 {
+    width: 511.87px;
+    height: 349.28px;
+  }
+  .main3_3 {
+    position: absolute;
+    width: 328.95px;
+    height: 200.37px;
+    top: -78px;
+    right: -120px;
+  }
 `;
 
 export default MainMid;
