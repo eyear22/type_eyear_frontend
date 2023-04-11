@@ -71,7 +71,8 @@ const Container = styled.header`
   background-color: #ffffff;
   z-index: 2;
   height: 110px;
-  width: 1322px;
+  max-width: 1322px;
+  width: 70%;
 `;
 
 const Logo = styled.img`

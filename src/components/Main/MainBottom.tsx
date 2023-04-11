@@ -26,7 +26,8 @@ const MainBottom = () => {
 };
 
 const Container = styled.section`
-  width: 1322px;
+  max-width: 1322px;
+  width: 70%;
   margin: 0 auto;
   padding-top: 141px;
   padding-bottom: 405.85px;

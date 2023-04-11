@@ -55,7 +55,8 @@ const Container = styled.section`
 `;
 
 const Section1 = styled.section`
-  width: 1322px;
+  max-width: 1322px;
+  width: 70%;
   margin: 0 auto;
   .imgWrap {
     display: flex;
@@ -64,7 +65,7 @@ const Section1 = styled.section`
   }
   .main1_1 {
     margin-top: 24px;
-    width: 527.2px;
+    width: 500.2px;
     height: 428px;
   }
   .main1_2 {
@@ -102,7 +103,8 @@ const Introduce = styled.div`
 `;
 
 const Section2 = styled.section`
-  width: 1322px;
+  max-width: 1322px;
+  width: 70%;
   margin: 0 auto;
   margin-top: 261.75px;
   .imgWrap {
@@ -174,7 +176,8 @@ const Section2 = styled.section`
 `;
 
 const Section3 = styled.section`
-  width: 1322px;
+  max-width: 1322px;
+  width: 70%;
   margin: 0 auto;
   margin-top: 230.29px;
   .num {
