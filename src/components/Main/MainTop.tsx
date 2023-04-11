@@ -57,8 +57,8 @@ const MainImgWrap = styled.div`
   justify-content: center;
   margin-top: 82px;
   img {
-    height: 340px;
-    width: 715px;
+    height: 346px;
+    width: 745px;
     object-fit: cover;
   }
 `;
