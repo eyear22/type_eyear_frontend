@@ -73,6 +73,7 @@ const Container = styled.header`
   height: 110px;
   max-width: 1322px;
   width: 70%;
+  border-radius: 0px 0px 8px 8px;
 `;
 
 const Logo = styled.img`
@@ -215,7 +216,7 @@ const DropDownWrap = styled.ul`
     border-radius: 6px;
     color: #51cd89;
     &:hover {
-      background: #f1f5ff;
+      background: #edf6f1;
     }
   }
   .logout {
