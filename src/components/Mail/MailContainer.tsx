@@ -35,9 +35,8 @@ const MailContainer = () => {
 
 const Container = styled.section`
   display: flex;
-  margin-top: 92px;
   height: 468px;
-  background: #f1f5ff;
+  background-color: #edf6f1;
 `;
 
 const Wrap = styled.div`

@@ -13,6 +13,8 @@ const HomeContainer = () => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  background-color: #edf6f1;
+`;
 
 export default HomeContainer;
